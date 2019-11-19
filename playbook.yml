@@ -1,0 +1,16 @@
+---
+
+- hosts: development
+  gather_facts: false
+  tasks:
+    - name: Check if Server is Alive
+      ping:
+      tags: check
+
+    - name: Ping Server Just Because We Can
+      ping:
+      tags: check
+
+    - name: Reload PHP
+      shell: systemctl reload php-fpm
+      tags: reload-php
